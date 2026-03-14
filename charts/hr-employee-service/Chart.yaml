@@ -1,0 +1,12 @@
+apiVersion: v2
+name: hr-employee-service
+description: Helm chart for deploying the HR Employee Service
+type: application
+version: 0.1.0
+appVersion: "1.0.0"
+keywords:
+  - hr
+  - employee
+  - service
+maintainers:
+  - name: hr-platform
