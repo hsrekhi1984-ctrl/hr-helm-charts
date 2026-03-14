@@ -1,17 +1,39 @@
 # hr-helm-charts
 
-This repository contains Helm charts migrated to `hr-helm-charts` (`main`) from `hr-employee-service` (`development`).
+Reusable Helm chart setup for HR microservices using a single base chart and per-service values files.
 
-## Available charts
+## Structure
 
-- `charts/microservice-base`: reusable Helm **library chart** with shared templates for service accounts, configmaps, deployments, services, ingresses, and HPAs.
-- `charts/hr-employee-service`: application chart for the HR Employee Service that consumes `microservice-base`.
+- `helm/microservice-base`: reusable base chart that renders common Kubernetes resources:
+  - Deployment
+  - Service
+  - Ingress
+  - HorizontalPodAutoscaler
+  - NetworkPolicy
+  - PodDisruptionBudget
+  - ServiceAccount
+  - ServiceMonitor
+  - Secret
+- Service-specific values files:
+  - `helm/hr-employee-service/values.yaml`
+  - `helm/hr-payroll-service/values.yaml`
+  - `helm/hr-notification-service/values.yaml`
+  - `helm/hr-leave-service/values.yaml`
+  - `helm/hr-frontend/values.yaml`
 
-## Package and validate
+## Install examples
 
 ```bash
-helm dependency update charts/hr-employee-service
-helm lint charts/microservice-base
-helm lint charts/hr-employee-service
-helm template hr-employee-service charts/hr-employee-service
+helm install hr-employee-service ./helm/microservice-base -f ./helm/hr-employee-service/values.yaml
+helm install hr-payroll-service ./helm/microservice-base -f ./helm/hr-payroll-service/values.yaml
+helm install hr-notification-service ./helm/microservice-base -f ./helm/hr-notification-service/values.yaml
+helm install hr-leave-service ./helm/microservice-base -f ./helm/hr-leave-service/values.yaml
+helm install hr-frontend ./helm/microservice-base -f ./helm/hr-frontend/values.yaml
+```
+
+## Validate
+
+```bash
+helm lint ./helm/microservice-base
+helm template hr-employee-service ./helm/microservice-base -f ./helm/hr-employee-service/values.yaml
 ```
