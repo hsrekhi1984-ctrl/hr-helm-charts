@@ -1,0 +1,13 @@
+apiVersion: v2
+name: microservice-base
+description: Reusable enterprise-grade Helm base chart for stateless microservices
+type: application
+version: 1.0.0
+appVersion: "1.0.0"
+kubeVersion: ">=1.25.0-0"
+keywords:
+  - microservice
+  - kubernetes
+  - platform
+maintainers:
+  - name: HR Platform Team

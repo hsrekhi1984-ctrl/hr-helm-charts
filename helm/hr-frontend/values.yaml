@@ -1,0 +1,19 @@
+service:
+  name: hr-frontend
+  port: 80
+
+image:
+  repository: ghcr.io/company/hr-frontend
+  tag: "1.0.0"
+
+replicaCount: 2
+containerPort: 80
+
+ingress:
+  enabled: true
+  className: nginx
+  host: hr.example.com
+  path: /
+
+serviceMonitor:
+  enabled: false
