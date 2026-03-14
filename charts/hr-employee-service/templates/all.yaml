@@ -1,0 +1,11 @@
+{{- include "microservice-base.serviceaccount" . }}
+---
+{{- include "microservice-base.configmap" . }}
+---
+{{- include "microservice-base.deployment" . }}
+---
+{{- include "microservice-base.service" . }}
+---
+{{- include "microservice-base.ingress" . }}
+---
+{{- include "microservice-base.hpa" . }}

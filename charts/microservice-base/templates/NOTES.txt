@@ -1,0 +1,10 @@
+This is a library chart.
+
+Use it as a dependency from an application chart and include helper templates, for example:
+
+{{ include "microservice-base.serviceaccount" . }}
+{{ include "microservice-base.deployment" . }}
+{{ include "microservice-base.service" . }}
+{{ include "microservice-base.ingress" . }}
+{{ include "microservice-base.hpa" . }}
+{{ include "microservice-base.configmap" . }}
