@@ -1,13 +1,18 @@
+# This chart is a Helm library chart.
+# It does not deploy resources by itself.
+# Consumer charts can pass this structure into the helpers in templates/_microservice.tpl.
+
+nameOverride: ""
+fullnameOverride: ""
+
 replicaCount: 2
 
 image:
-  repository: ghcr.io/example/hr-employee-service
+  repository: ""
   pullPolicy: IfNotPresent
   tag: ""
 
 imagePullSecrets: []
-nameOverride: ""
-fullnameOverride: ""
 
 serviceAccount:
   create: true
@@ -23,6 +28,7 @@ securityContext: {}
 containerPort: 8080
 
 service:
+  enabled: true
   type: ClusterIP
   port: 80
   targetPort: 8080
@@ -31,29 +37,13 @@ ingress:
   enabled: false
   className: ""
   annotations: {}
-  hosts:
-    - host: hr-employee.local
-      paths:
-        - path: /
-          pathType: Prefix
+  hosts: []
   tls: []
 
-resources:
-  limits:
-    cpu: 500m
-    memory: 512Mi
-  requests:
-    cpu: 100m
-    memory: 128Mi
+resources: {}
 
-livenessProbe:
-  httpGet:
-    path: /actuator/health/liveness
-    port: http
-readinessProbe:
-  httpGet:
-    path: /actuator/health/readiness
-    port: http
+livenessProbe: {}
+readinessProbe: {}
 
 autoscaling:
   enabled: false

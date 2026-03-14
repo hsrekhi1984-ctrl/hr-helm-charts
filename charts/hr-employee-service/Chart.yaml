@@ -10,3 +10,7 @@ keywords:
   - service
 maintainers:
   - name: hr-platform
+dependencies:
+  - name: microservice-base
+    version: 0.1.0
+    repository: file://../microservice-base
