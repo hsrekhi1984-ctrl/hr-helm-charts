@@ -18,6 +18,18 @@ ingress:
 serviceMonitor:
   enabled: true
 
+livenessProbe:
+  enabled: true
+  httpGet:
+    path: /actuator/health
+    port: http
+
+readinessProbe:
+  enabled: true
+  httpGet:
+    path: /actuator/health
+    port: http
+
 env:
   - name: MANAGEMENT_ENDPOINTS_WEB_EXPOSURE_INCLUDE
     value: "health"
