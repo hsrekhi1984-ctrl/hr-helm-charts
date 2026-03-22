@@ -49,15 +49,15 @@ secret:
 livenessProbe:
   enabled: true
   httpGet:
-    path: /actuator/health/liveness
+    path: /health
     port: http
-  initialDelaySeconds: 20
+  initialDelaySeconds: 10
   periodSeconds: 10
 
 readinessProbe:
   enabled: true
   httpGet:
-    path: /actuator/health/readiness
+    path: /health
     port: http
   initialDelaySeconds: 10
   periodSeconds: 10
