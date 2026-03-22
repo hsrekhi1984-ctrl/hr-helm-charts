@@ -11,3 +11,13 @@ keywords:
   - platform
 maintainers:
   - name: HR Platform Team
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health
+  endpoint:
+    health:
+      probes:
+        enabled: true
+
