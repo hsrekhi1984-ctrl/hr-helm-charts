@@ -17,3 +17,9 @@ ingress:
 
 serviceMonitor:
   enabled: true
+
+env:
+  - name: MANAGEMENT_ENDPOINTS_WEB_EXPOSURE_INCLUDE
+    value: "health"
+  - name: MANAGEMENT_ENDPOINT_HEALTH_PROBES_ENABLED
+    value: "true"
