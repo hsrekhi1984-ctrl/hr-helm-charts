@@ -18,13 +18,15 @@ replicaCount: 2
 containerPort: 8080
 
 podAnnotations: {}
-podLabels: {}
+podLabels:
+  azure.workload.identity/use: "true"
 
 serviceAccount:
   create: true
   automount: true
-  annotations: {}
-  name: ""
+  annotations: 
+    azure.workload.identity/client-id: ed0d270a-afd4-431f-87d6-9f451c5d1345
+  name: "hr-payroll-sa"
 
 podSecurityContext: {}
 securityContext: {}
