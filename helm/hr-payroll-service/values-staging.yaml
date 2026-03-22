@@ -21,13 +21,13 @@ serviceMonitor:
 livenessProbe:
   enabled: true
   httpGet:
-    path: /actuator/health
+    path: /health
     port: http
 
 readinessProbe:
   enabled: true
   httpGet:
-    path: /actuator/health
+    path: /health
     port: http
 
 env:
